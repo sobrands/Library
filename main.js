@@ -83,15 +83,14 @@ function changeReadStatus(book) {
 
 function UpdateListener() {
   const books = booksPage.querySelectorAll(".book");
-  books.forEach(book => {
-    book.addEventListener("click", (e) => {
-      if (e.target.matches("button.remove")) {
-        removeBookFromLibrary(books, book.dataset.index);
-      }
-      else if (e.target.matches("button.read")) {
-        changeReadStatus(book);
-      }
-    })
+  const book = books[0];
+  book.addEventListener("click", (e) => {
+    if (e.target.matches("button.remove")) {
+      removeBookFromLibrary(books, book.dataset.index);
+    }
+    else if (e.target.matches("button.read")) {
+      changeReadStatus(book);
+    }
   })
 }
 
